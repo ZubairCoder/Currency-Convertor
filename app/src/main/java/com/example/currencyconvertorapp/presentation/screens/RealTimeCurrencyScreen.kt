@@ -24,10 +24,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.currencyconvertorapp.presentation.viewmodel.CurrencyViewModel
+import com.example.currencyconvertorapp.ui.theme.CurrencyConvertorAppTheme
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -293,6 +296,14 @@ fun RealTimeCurrencyScreen(
             }
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun RealTimeCurrencyScreenPreview() {
+    CurrencyConvertorAppTheme {
+        RealTimeCurrencyScreen(navController = rememberNavController())
     }
 }
 

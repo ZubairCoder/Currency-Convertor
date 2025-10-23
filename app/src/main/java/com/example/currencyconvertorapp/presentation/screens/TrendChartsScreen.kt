@@ -16,9 +16,12 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.currencyconvertorapp.presentation.viewmodel.TrendChartsViewModel
+import com.example.currencyconvertorapp.ui.theme.CurrencyConvertorAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -195,6 +198,14 @@ fun TrendChartsScreen(
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TrendChartsScreenPreview() {
+    CurrencyConvertorAppTheme {
+        TrendChartsScreen(navController = rememberNavController())
     }
 }
 

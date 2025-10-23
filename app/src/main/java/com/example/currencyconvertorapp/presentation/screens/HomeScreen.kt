@@ -60,25 +60,24 @@ fun HomeScreen(navController: NavController) {
             androidx.compose.ui.res.painterResource(id = com.example.currencyconvertorapp.R.drawable.ic_exchange_list),
             CurrencyGreen
         ) { navController.navigate(Screen.EXCHANGE_RATE_LIST) },
-        // Fallback to Material icons for the rest
         MenuItem(
             "Currency Simulation",
-            androidx.compose.ui.graphics.vector.rememberVectorPainter(image = Icons.Default.PlayArrow),
+            androidx.compose.ui.res.painterResource(id = com.example.currencyconvertorapp.R.drawable.ic_currency_simulation),
             CurrencyOrange
         ) { navController.navigate(Screen.CURRENCY_SIMULATION) },
         MenuItem(
             "Exchange Rate Adjustment",
-            androidx.compose.ui.graphics.vector.rememberVectorPainter(image = Icons.Default.Settings),
+            androidx.compose.ui.res.painterResource(id = com.example.currencyconvertorapp.R.drawable.ic_exchange_rate_adjustment),
             CurrencyPurple
         ) { navController.navigate(Screen.EXCHANGE_RATE_ADJUSTMENT) },
         MenuItem(
             "Currency Profile",
-            androidx.compose.ui.graphics.vector.rememberVectorPainter(image = Icons.Default.AccountCircle),
+            androidx.compose.ui.res.painterResource(id = com.example.currencyconvertorapp.R.drawable.ic_currency_profile),
             CurrencyBlue
         ) { navController.navigate(Screen.CURRENCY_PROFILE) },
         MenuItem(
             "Cryptocurrency",
-            androidx.compose.ui.graphics.vector.rememberVectorPainter(image = Icons.Default.Face),
+            androidx.compose.ui.res.painterResource(id = com.example.currencyconvertorapp.R.drawable.ic_cryptocurrency),
             CurrencyGreen
         ) { navController.navigate(Screen.CRYPTO) }
     )
@@ -245,5 +244,7 @@ data class MenuItem(
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen(navController = rememberNavController())
+    CurrencyConvertorAppTheme {
+        HomeScreen(navController = rememberNavController())
+    }
 }

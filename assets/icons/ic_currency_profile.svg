@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <!-- Profile circle -->
+  <circle cx="12" cy="4" r="2" fill="#2196F3"/>
+  
+  <!-- Profile body -->
+  <path d="M21,21V20C21,16.13 16.74,13 12,13C7.26,13 3,16.13 3,20V21H21Z" fill="#2196F3"/>
+  
+  <!-- Currency symbols -->
+  <rect x="6" y="8" width="2" height="1" fill="#FFD700"/>
+  <rect x="16" y="8" width="2" height="1" fill="#FFD700"/>
+  <rect x="6" y="10" width="2" height="1" fill="#FFD700"/>
+  <rect x="16" y="10" width="2" height="1" fill="#FFD700"/>
+</svg>

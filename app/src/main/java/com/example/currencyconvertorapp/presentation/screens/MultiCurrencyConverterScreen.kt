@@ -27,10 +27,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.currencyconvertorapp.presentation.viewmodel.CurrencyViewModel
+import com.example.currencyconvertorapp.ui.theme.CurrencyConvertorAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -43,19 +46,19 @@ fun MultiCurrencyConverterScreen(
     var toCurrency by remember { mutableStateOf("BTC") }
     var fromExpanded by remember { mutableStateOf(false) }
     var toExpanded by remember { mutableStateOf(false) }
-    
+
     val supportedCurrencies by viewModel.supportedCurrencies.collectAsState()
     val prices by viewModel.prices.collectAsState()
-    
+
     LaunchedEffect(Unit) {
         viewModel.loadAllPrices()
     }
-    
+
     val convertedAmount = remember(fromAmount, fromCurrency, toCurrency, prices) {
         val amount = fromAmount.toDoubleOrNull() ?: 0.0
         viewModel.convertCurrency(amount, fromCurrency, toCurrency)
     }
-    
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -157,7 +160,9 @@ fun MultiCurrencyConverterScreen(
                                         brush = Brush.radialGradient(
                                             colors = listOf(
                                                 MaterialTheme.colorScheme.primaryContainer,
-                                                MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.7f)
+                                                MaterialTheme.colorScheme.primaryContainer.copy(
+                                                    alpha = 0.7f
+                                                )
                                             )
                                         ),
                                         shape = CircleShape
@@ -218,7 +223,11 @@ fun MultiCurrencyConverterScreen(
                                     value = fromCurrency,
                                     onValueChange = { },
                                     readOnly = true,
-                                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = fromExpanded) },
+                                    trailingIcon = {
+                                        ExposedDropdownMenuDefaults.TrailingIcon(
+                                            expanded = fromExpanded
+                                        )
+                                    },
                                     modifier = Modifier.menuAnchor(),
                                     label = { Text("Currency") },
                                     shape = RoundedCornerShape(12.dp)
@@ -318,7 +327,9 @@ fun MultiCurrencyConverterScreen(
                                         brush = Brush.radialGradient(
                                             colors = listOf(
                                                 MaterialTheme.colorScheme.secondaryContainer,
-                                                MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.7f)
+                                                MaterialTheme.colorScheme.secondaryContainer.copy(
+                                                    alpha = 0.7f
+                                                )
                                             )
                                         ),
                                         shape = CircleShape
@@ -343,7 +354,9 @@ fun MultiCurrencyConverterScreen(
                                 Text(
                                     text = "Target currency",
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(
+                                        alpha = 0.7f
+                                    )
                                 )
                             }
                         }
@@ -370,7 +383,9 @@ fun MultiCurrencyConverterScreen(
                                 shape = RoundedCornerShape(12.dp),
                                 colors = OutlinedTextFieldDefaults.colors(
                                     focusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                                    unfocusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.5f)
+                                    unfocusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer.copy(
+                                        alpha = 0.5f
+                                    )
                                 )
                             )
 
@@ -383,13 +398,19 @@ fun MultiCurrencyConverterScreen(
                                     value = toCurrency,
                                     onValueChange = { },
                                     readOnly = true,
-                                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = toExpanded) },
+                                    trailingIcon = {
+                                        ExposedDropdownMenuDefaults.TrailingIcon(
+                                            expanded = toExpanded
+                                        )
+                                    },
                                     modifier = Modifier.menuAnchor(),
                                     label = { Text("Currency") },
                                     shape = RoundedCornerShape(12.dp),
                                     colors = OutlinedTextFieldDefaults.colors(
                                         focusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                                        unfocusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.5f)
+                                        unfocusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer.copy(
+                                            alpha = 0.5f
+                                        )
                                     )
                                 )
                                 ExposedDropdownMenu(
@@ -455,7 +476,9 @@ fun MultiCurrencyConverterScreen(
                                             brush = Brush.radialGradient(
                                                 colors = listOf(
                                                     MaterialTheme.colorScheme.tertiaryContainer,
-                                                    MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.7f)
+                                                    MaterialTheme.colorScheme.tertiaryContainer.copy(
+                                                        alpha = 0.7f
+                                                    )
                                                 )
                                             ),
                                             shape = CircleShape
@@ -480,7 +503,9 @@ fun MultiCurrencyConverterScreen(
                                     Text(
                                         text = "Current market rate",
                                         style = MaterialTheme.typography.bodySmall,
-                                        color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f)
+                                        color = MaterialTheme.colorScheme.onTertiaryContainer.copy(
+                                            alpha = 0.7f
+                                        )
                                     )
                                 }
                             }
@@ -498,9 +523,10 @@ fun MultiCurrencyConverterScreen(
                                     modifier = Modifier.padding(16.dp),
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
-                                    val rate = if (fromAmount.toDoubleOrNull() != null && fromAmount.toDoubleOrNull() != 0.0) {
-                                        convertedAmount / (fromAmount.toDoubleOrNull() ?: 1.0)
-                                    } else 0.0
+                                    val rate =
+                                        if (fromAmount.toDoubleOrNull() != null && fromAmount.toDoubleOrNull() != 0.0) {
+                                            convertedAmount / (fromAmount.toDoubleOrNull() ?: 1.0)
+                                        } else 0.0
 
                                     Text(
                                         text = "1 $fromCurrency = ${"%.6f".format(rate)} $toCurrency",
@@ -512,7 +538,11 @@ fun MultiCurrencyConverterScreen(
                                     Spacer(modifier = Modifier.height(8.dp))
 
                                     Text(
-                                        text = "$fromAmount $fromCurrency = ${"%.6f".format(convertedAmount)} $toCurrency",
+                                        text = "$fromAmount $fromCurrency = ${
+                                            "%.6f".format(
+                                                convertedAmount
+                                            )
+                                        } $toCurrency",
                                         style = MaterialTheme.typography.bodyMedium,
                                         color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
@@ -523,5 +553,13 @@ fun MultiCurrencyConverterScreen(
                 }
             }
         }
-        }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MultiCurrencyConverterScreenPreview() {
+    CurrencyConvertorAppTheme {
+        MultiCurrencyConverterScreen(navController = rememberNavController())
+    }
+}

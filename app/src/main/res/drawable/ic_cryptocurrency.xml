@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <!-- Bitcoin symbol -->
+    <path
+        android:pathData="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF9800"
+        android:strokeWidth="2"/>
+    <!-- B symbol -->
+    <path
+        android:pathData="M10,7 L10,5 L12,5 L12,7 L13.5,7 C14.33,7 15,7.67 15,8.5 C15,9.33 14.33,10 13.5,10 L13.5,10 C14.33,10 15,10.67 15,11.5 C15,12.33 14.33,13 13.5,13 L12,13 L12,15 L10,15 L10,13 L8.5,13 L8.5,11 L9,11 L9,9 L8.5,9 L8.5,7 L10,7 Z M11,9 L11,11 L13,11 C13.55,11 14,10.55 14,10 C14,9.45 13.55,9 13,9 L11,9 Z M11,7 L11,9 L13,9 C13.55,9 14,8.55 14,8 C14,7.45 13.55,7 13,7 L11,7 Z"
+        android:fillColor="#FF9800"
+        android:strokeColor="#FF9800"
+        android:strokeWidth="0.5"/>
+</vector>

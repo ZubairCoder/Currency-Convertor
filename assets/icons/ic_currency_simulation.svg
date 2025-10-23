@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <!-- Play button circle -->
+  <circle cx="12" cy="12" r="10" fill="#FF6B35"/>
+  
+  <!-- Play triangle -->
+  <polygon points="10,8.5 10,15.5 16,12" fill="#FFFFFF"/>
+  
+  <!-- Currency symbols around -->
+  <rect x="4" y="6" width="2" height="1" fill="#4CAF50"/>
+  <rect x="18" y="6" width="2" height="1" fill="#2196F3"/>
+  <rect x="4" y="17" width="2" height="1" fill="#FF9800"/>
+  <rect x="18" y="17" width="2" height="1" fill="#9C27B0"/>
+</svg>
